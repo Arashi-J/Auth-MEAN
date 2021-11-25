@@ -29,10 +29,12 @@ export class RegisterComponent {
 
     const { name, email, password } = this.miFormulario.value;
 
+    this.router.navigateByUrl('/dashboard');
+
     this.authService.registro(name, email, password)
       .subscribe(ok => {
-        console.log(ok);
         if (ok === true) {
+          console.log(ok);
           this.router.navigateByUrl('/dashboard');
         } else {
           Swal.fire('Error', ok, 'error');
